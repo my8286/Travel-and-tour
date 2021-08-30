@@ -1,0 +1,59 @@
+<div class="container px-5 my-5">
+    <form #bookingForm="ngForm" (ngSubmit)="onSubmit();bookingForm.reset();">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead text-center">Booking Details</p>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="i1">Firstname</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="bookingModel.firstName" id="i1" placeholder="Firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="i2">Lastname</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="bookingModel.lastName" id="i2" placeholder="Lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" name="age" [(ngModel)]="bookingModel.age" id="age" placeholder="Age">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Gender</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="radio1" name="gender" value="male" [(ngModel)]="bookingModel.gender" class="custom-control-input">
+                        <label class="custom-control-label" for="radio1" >Male</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="radio2" name="gender" value="female" [(ngModel)]="bookingModel.gender" class="custom-control-input">
+                        <label class="custom-control-label" for="radio2" >Female</label>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                
+                <h1 class="lead text-center">Payment Details</h1>
+                <div class="form-group">
+                    <label for="inputAddress2">Name</label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                        placeholder="Name on card">
+                </div>
+                <div class="form-group">
+                    <label for="cardno">Card Number</label>
+                    <input type="text" class="form-control" id="cardno" placeholder="Card number">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Expiry Date</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">CVV</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="CVV">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

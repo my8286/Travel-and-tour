@@ -1,0 +1,65 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Search</h1>
+    <form #transportForm="ngForm" (ngSubmit)="onSearch()">
+      <div class="row">
+        <div class="col-md-2">
+          <input type="text" class="form-control" name="source" [(ngModel)]="transportModel.source" placeholder="From"
+            required>
+        </div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" name="destination" [(ngModel)]="transportModel.destination"
+            placeholder="To" required>
+        </div>
+        <div class="col-md-2">
+          <input type="date" class="form-control" name="date" [(ngModel)]="searchDate" placeholder="To" required>
+        </div>
+        <div class="col-md-2">
+          <select class="custom-select" name="type" [(ngModel)]="transportModel.type" required>
+            <option value="1">Train</option>
+            <option value="2">Bus</option>
+            <option value="3">Flight</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container alert-secondary mt-1 px-5 py-5 rounded" *ngFor="let transport of transportData">
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row ">
+        <div class="col-md-3 text-center">
+          <p class="lead">{{transport.source | uppercase}}</p>
+          <hr>
+          <p class="lead">{{transport.departure | slice:0:2 }}:{{transport.departure | slice:2:4 }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead text-center">To</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <p class="lead">{{transport.destination | uppercase}}</p>
+          <hr>
+          <p class="lead">{{transport.arrival | slice:0:2 }}:{{transport.arrival | slice:2:4 }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 div-border ">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="lead ">Fare: {{transport.fare}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a class="btn btn-primary" [routerLink]="['booking-page',transport.transportId,searchDate]" >Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

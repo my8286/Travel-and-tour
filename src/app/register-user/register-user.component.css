@@ -1,0 +1,101 @@
+.login-page {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color:rgba(0, 0,0, 0.5) ;
+  background-image: url('../../assets/b-1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+figure{
+  margin: 0%;
+  padding: 0%;
+}
+
+.login-page > figure {
+  animation: imageAnimation 30s linear infinite 0s;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+  color: transparent;
+  height: 100%;
+  
+  opacity: 0;
+  position: absolute;
+  
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+.login-page > figure:nth-child(1) { background-image: url('../../assets/img/b410.jpg'); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.login-page > figure:nth-child(2) {
+animation-delay: 6s;
+background-image: url('../../assets/img/b40.jpg');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+.login-page > figure:nth-child(3) {
+animation-delay: 12s;
+background-image: url('../../assets/img/b46.jpg');
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@keyframes 
+imageAnimation {  0% {
+animation-timing-function: ease-in;
+opacity: 0;
+}
+8% {
+animation-timing-function: ease-out;
+opacity: 1;
+}
+17% {
+opacity: 1
+}
+25% {
+opacity: 0
+}
+100% {
+opacity: 0
+}
+}
+
+  
+  mat-card {
+    width: 30%;
+    margin: 2% auto;
+    border-radius: 8px;
+  }
+  mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  mat-card-content {
+    margin-top: 20px;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+  }
+  .registration-tab{
+    margin-bottom: 20%;
+  }
+ 

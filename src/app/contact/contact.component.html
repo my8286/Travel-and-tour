@@ -1,0 +1,30 @@
+<div class="container my-5 ">
+    <h1 class="display-4  text-center">Contact Us</h1>
+    <p class="text-center" [class.text-success]="contact_msg">{{contact_msg}}</p>
+    <form #contactForm="ngForm"  (ngSubmit)="onSubmit();contactForm.reset()" >
+        <div class="row py-5">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="contactModel.firstName" name="firstname" placeholder="First name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="contactModel.lastName" name="lastname" placeholder="Last name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" [(ngModel)]="contactModel.email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"  [(ngModel)]="contactModel.phoneno" name="phone" placeholder="Phone" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" name="message"  [(ngModel)]="contactModel.message" placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>

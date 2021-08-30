@@ -1,0 +1,96 @@
+<div class="container text-center my-5 py-5" *ngIf="historyData?.length== 0">
+  <p class="display-1">No Record Found</p>
+</div>
+<div *ngFor=" let history of historyData">
+  <div [class.alert-success]="history.status==1" [class.alert-danger]="history.status==0" class="container  mt-2 px-5 py-5 rounded">
+
+    <div class="row text-center">
+      <div class="col-md-6">
+        <p class="lead">Booking Id: {{history.bookingId}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="lead">Journey Date: {{history.journeyDate}}</p>
+      </div>
+    </div>
+
+
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row ">
+          <div class="col-md-3 text-center">
+            <p class="lead">{{history.transport.source | uppercase}}</p>
+
+            <p class="lead">{{history.transport.departure | slice:0:2 }}:{{history.transport.departure | slice:2:4 }}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead text-center">To</p>
+          </div>
+          <div class="col-md-3 text-center">
+            <p class="lead">{{history.transport.destination | uppercase}}</p>
+
+            <p class="lead">{{history.transport.arrival | slice:0:2 }}:{{history.transport.arrival | slice:2:4 }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-4 div-border ">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p class="lead ">Fare: 1000</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a class="btn btn-danger" [routerLink]="['booking-page']" >Cancel</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <hr>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <p class="lead">Name</p>
+      </div>
+      <div class="col-md-4">
+        <p class="lead ">Gender</p>
+      </div>
+      <div class="col-md-4">
+        <p class="lead">Age</p>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <p class="lead">{{history.passenger.firstName | uppercase}} {{history.passenger.lastName | uppercase}}</p>
+      </div>
+      <div class="col-md-4">
+        <p class="lead">{{history.passenger.gender | uppercase}}</p>
+      </div>
+      <div class="col-md-4">
+        <p class="lead">{{history.passenger.age}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <p class="lead">Total Fare: {{history.transport.fare}}</p>
+      </div>
+      <div class="col-md-6" *ngIf="history.status==1; else refundTag">
+
+        <form (ngSubmit)="cancelTicket(history.bookingId)">
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </form>
+
+      </div>
+      <ng-template #refundTag>
+        <div class="col-md-6">
+          <p class="lead">Refund Fare: {{history.transport.fare-120}}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
